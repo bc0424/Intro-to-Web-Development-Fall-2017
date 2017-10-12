@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B.Chan Portfolio</title>
+	<style type="text/css">
+	body{
+		overflow: hidden;
+	}
+
+	#bar{
+		margin-right: 50px;
+	
+
+	}
+
+	#menu{
+		margin-top: 50px;
+	}
+	#menu a{
+		
+		margin-left: 100px;
+		margin-right: 100px;
+
+	}
+	
+	#logo{
+		margin-top: -50px;
+		width: 10%;
+	}
+
+	/*#reel{
+		margin-top: 200px;
+		text-align: center;
+		margin-left: 300px;
+	}
+*/
+	
+	.gallery{
+			position: absolute;
+            display: block;
+            top: -50px;
+            left: -450px;
+            width: 500px;
+            max-height: 1500px;
+            margin: 200px;
+            padding-top: 1px;
+            background: #F8F8FF;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transform: rotate(-90deg) translateY(-250px);
+            transform-origin: right top;
+	}
+
+	.gallery div{
+			display: block;
+            padding: 1px;
+            background: #F8F8FF;
+            transform: rotate(90deg);
+            transform-origin: right top;
+	}
+
+	.sketch{
+		margin: 100px 1;
+		padding-left: 250px 0 250px 0;
+
+	}
+
+	.drawings{
+		padding: 15px;
+		border: 5px solid black;
+		margin-left: 100px;
+	}	
+
+	</style>
+</head>
+<body>
+
+<div>
+	<img id="logo" align= "left" src= "Assets/logo.png">
+	</div>
+
+	<div id= "menu" align="right" align="center">
+	<a> About </a>
+	<a> Work </a>	
+	</div>
+
+
+<div class="gallery sketch">
+	<div><img class="drawings" src="Assets/Converses.jpg" width=70%></div>
+	<div><img class="drawings" src="Assets/Life of a Guitar.jpg" width=60%></div>
+	<div><img class="drawings" src="Assets/Rooted Nature.jpg" width=60%></div>
+	<div><img class="drawings" src="Assets/Converses.jpg" width=70%></div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
