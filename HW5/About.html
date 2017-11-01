@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B.Chan Portfolio</title>
+	<style type= "text/css">
+
+		@import url('https://fonts.googleapis.com/css?family=Hind:700');
+		body{
+			font-family: 'Hind Bold 700', sans-serif;
+
+		}
+
+		.thumbnail:hover{
+		/*	top:-5px;
+			left: -5px;
+			right:-5px;
+			width: 75%;
+		*/
+		width:75%;
+
+		}
+		#menu{
+		margin-top: 50px;
+		}
+		#menu a{
+			
+			margin-left: 5px;
+			margin-right: 100px;
+			font-size: 25px;
+			text-decoration: none;
+			color: black;
+		}
+		
+		#logo{
+			margin-top: -50px;
+			width: 10%;
+		}
+
+		#Me{
+			margin-top: 100px;
+			margin-left: 100px;
+		}
+
+		#intro{
+			position: absolute;
+			top:150px;
+			left: 700px;
+			font-size: 25px;
+
+		}
+		#blurb{
+			position: absolute;
+			line-height: 25px;
+			top: 210px;
+			left: 700px;
+			word-wrap: break-word;
+			width: 700px;
+			font-size: 15px;
+
+		}
+
+		#skill{
+			position: absolute;
+			top: 350px;
+			left: 700px;
+			font-size: 25px;
+		}
+
+		#motionicon{
+			position: absolute;
+			top: 450px;
+			left: 700px;
+		}
+
+		#graphicicon{
+			position: absolute;
+			top: 450px;
+			left: 850px;
+		}
+
+		#sketchicon{
+			position: absolute;
+			top: 450px;
+			left: 1000px;
+		}
+
+		#contact{
+			position: absolute;
+			top: 550px;
+			left: 700px;
+			font-size: 25px;
+		}
+	
+	#vimeo{
+		position: absolute;
+		top: 80px;
+		left: 10px;
+	}
+
+	#linked{
+		position: absolute;
+		top: 80px;
+		left: 80px;
+	}
+
+	#github{
+		position: absolute;
+		top: 80px;
+		left: 150px;
+	}
+
+	#resume{
+		position: absolute;
+		top: 80px;
+		left: 220px;
+	}
+
+	</style>
+</head>
+<body>
+
+
+	<div>
+	<a href="Index.html"><img id="logo" align= "left" src= "Assets/logo.png"></a>
+	</div>
+
+	<div id="menu" align="right" margin-top= 50px>
+	<a href="About.html"> About </a>
+	<a href="Work.html"> Work </a>	
+	</div>
+
+	<div id="Me">
+	<img id="bonnie" src="Assets/Bonnie.jpg" width= 30% height=30%>
+	</div>
+
+	<p id="intro">
+	About Me:
+	</p>
+	<p id="blurb">
+	Hello, my name is Bonnie Chan and I am an undergraduate major in Integrated Digital Media at New York University. After being introduced to Graphic Design in high school, I fell in love with design. Being able to turn my visions into reality has been an amazing journey for me. Most of my work involves vector drawings and motion graphics, but I also enjoy sketching during my free time. As an aspiring designer and creative thinker, I am always looking for inspiration and new skills to learn.
+	</p>
+
+	<p id="skill">
+	Skills:
+	</p>
+
+	<div id="graphicicon">
+	<a href="Motionn.html"><img src="Assets/Motion_Icon.png" class="thumbnail" width= 70%></a>
+	</div>
+
+
+	<div id="motionicon">
+	<a href="Graphic.html"><img src="Assets/Illustrator_Icon.png" class="thumbnail" width= 70%>
+	</div>
+
+	<div id="sketchicon">
+	<a href="sketchhh.html"><img src="Assets/Sketch_Icon.png" class="thumbnail" width= 70%></a>
+	</div>
+
+
+	<div id="contact">
+	<p>Contact Me:</p>
+	<a href="https://vimeo.com/bchan424"><img id="vimeo" src="Assets/vimeo.png" width=40%></a>
+	<a href="https://www.linkedin.com/in/bonnie-chan424/"><img id="linked" src= "Assets/linkedin.png" width=40%></a>
+	<a href="https://github.com/bc0424"><img id="github" src="Assets/github.png" width=40%></a>
+	<a href="Resume.pdf"><img id="resume" src="Assets/resume.png" width=40%></a>
+	</div>
+
+	<script type="text/javascript">
+	var img= document.querySelector('#bonnie')
+
+	function changeSource(){
+		var currentSource = img.getAttribute('src');
+		if (currentSource == "Assets/Bonnie.jpg"){
+			img.setAttribute("src", "Assets/Bonnie2.jpg");
+		}else if (currentSource == "Assets/Bonnie2.jpg"){
+			img.setAttribute("src","Assets/Bonnie3.jpg");
+		} else{
+			img.setAttribute("src","Assets/Bonnie.jpg");
+		}
+	}
+
+		setInterval(changeSource,5000)
+	</script>
+</body>
+</html>
