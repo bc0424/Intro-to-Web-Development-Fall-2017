@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	<title>BonNomTravels</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	body{
+		overflow: hidden;
+
+	}
+
+	a:visited {
+		text-decoration: none;
+		color: #616160;
+
+	}
+
+	a:link{
+		text-decoration: none;
+		color: #616160;
+
+	}
+	#citytitle{
+		text-decoration: none;
+		font-family: 'Amatic SC';
+		text-align: center;
+		margin: auto;
+		margin-top: 15px;
+		margin-bottom:-20px;
+		font-size: 4.5vw;
+	}
+
+	#text{
+		font-family:"Amatic SC";
+		font-size: 1.5vw;
+		float:left;
+		margin-top: 0;
+		max-height: 100%;
+		max-width: 50%;
+	
+
+	}
+
+	#placename{
+		font-family:"Amatic SC";
+		font-size: 2vw;
+		color: #DDB238;
+		top:-100px;
+		bottom:-50%;
+		width:50%;
+		max-width: 200px;
+		max-height: 10px
+
+	}
+
+
+
+	.gallery{
+		max-width: 50%;
+		max-height: 50%;
+		margin-right:10px;
+		margin-left: 51%;
+		background-color: #CCC9C8;
+
+	}
+
+	.image{
+		max-width: 100%;
+		margin-left: 20%;
+		margin-top: 10%;
+	}
+
+	.wideimage{
+		max-width: 100%;
+		margin-left: 15%;
+		margin-top: 10%;
+	}
+
+	#hamburger
+	{
+	  margin: 5px;
+	  padding: 0;
+	  
+	  /* make it look decent enough */
+	  overflow: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+	}
+
+	#link
+	{
+	  color: #DDB238;
+	  text-decoration: none;
+	  transition: color 0.3s ease;
+	  font-family: "Amatic SC";
+	}
+
+	a:hover
+	{
+	  color: #DDB238;
+	}
+
+	#menuToggle
+	{
+	  display: block;
+	  position: absolute;
+	  top: 20px;
+	  right: 50px;
+	  
+	  z-index: 1;
+	  
+	  -webkit-user-select: none;
+	  user-select: none;
+	}
+
+	#menuToggle input
+	{
+	  display: block;
+	  width: 30px;
+	  height: 22px;
+	  position: absolute;
+	  top: -7px;
+	  left: -5px;
+	  
+	  cursor: pointer;
+	  
+	  opacity: 0; /* hide this */
+	  z-index: 2; /* and place it over the hamburger */
+	  
+	  -webkit-touch-callout: none;
+	}
+
+	/*
+	 * Just a quick hamburger
+	 */
+	#menuToggle span
+	{
+	  display: block;
+	  width: 25px;
+	  height: 4px;
+	  margin-bottom: 5px;
+	  position: relative;
+	  
+	  background: #DDB238;
+	  border-radius: 3px;
+	  
+	  z-index: 1;
+	  
+	  transform-origin: 4px 0px;
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              opacity 0.55s ease;
+	}
+
+	#menuToggle span:first-child
+	{
+	  transform-origin: 0% 0%;
+	}
+
+	#menuToggle span:nth-last-child(2)
+	{
+	  transform-origin: 0% 100%;
+	}
+
+	/* 
+	 * Transform all the slices of hamburger
+	 * into a crossmark.
+	 */
+	#menuToggle input:checked ~ span
+	{
+	  opacity: 1;
+	  transform: rotate(45deg) translate(4px, 4px);
+	  background: #DDB238;
+	}
+
+	/*
+	 * But let's hide the middle one.
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(3)
+	{
+	  opacity: 0;
+	  transform: rotate(0deg) scale(0.2, 0.2);
+	}
+
+	/*
+	 * Ohyeah and the last one should go the other direction
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(2)
+	{
+	  opacity: 1;
+	  transform: rotate(-45deg) translate(0, -1px);
+	}
+
+	/*
+	 * Make this absolute positioned
+	 * at the top left of the screen
+	 */
+	#menu
+	{
+	  position: absolute;
+	  width: 150px;
+	  margin: -80px 0 0 0;
+	  padding: 50px;
+	  padding-top: 50px;
+	  right: -100px;
+
+	  text-decoration: none;
+	  
+	  background: #ededed;
+	  list-style-type: none;
+	  -webkit-font-smoothing: antialiased;
+	  /* to stop flickering of text in safari */
+	  
+	  transform-origin: 0% 0%;
+	  transform: translate(100%, 0);
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+
+	#menu li
+	{
+	  padding: 10px 0;
+	  font-size: 22px;
+	}
+
+	/*
+	 * And let's fade it in from the left
+	 */
+	#menuToggle input:checked ~ ul
+	{
+	  transform: scale(1.0, 1.0);
+	  opacity: 1;
+	}
+
+
+
+	</style>
+</head>
+<body>
+
+	<div id=citytitle>
+	<a class="title" href="New York.html"><b>New York City</b></a>
+	</div>
+
+	<!--<img id=timeline src='Assets/Timeline.png'>-->
+
+<div id="hamburger">
+<nav role='navigation'>
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a id="link" href="index.html"><li><b>Home</b></li></a>
+      <a id="link" href="About.html"><li><b>About</b></li></a>
+      <a id="link" href="Contact.html"><li><b>Contact</b></li></a>
+    </ul>
+  </div>
+</nav>
+</div>
+
+	<b><p id="placename">The High Line</p></b>
+
+	<b><p style="border:0px solid black;height:550px;width:1800px;overflow-y:scroll;overflow-x:hidden;" id=text>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+	</p></b>
+
+	<div style="border:0px solid black;height:550px;width:1800px;overflow-y:scroll;overflow-x:hidden;" class="gallery">
+	<img class="image" src="Assets/highline1.jpg">
+	<img class="wideimage" src="Assets/highline2.jpg">
+	<img class= "wideimage" src="Assets/highline2.jpg">
+	</div>
+</body>
+</html>

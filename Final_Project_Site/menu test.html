@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	<title>BonNomTravels</title>
+	<style>
+	#container{
+		border: 2px solid grey;
+		height:20px;
+		width:20px;
+	}
+	nav{
+		width:100px;
+		border:2px solid grey;
+	}
+	a{
+		color:grey;
+		text-decoration: none;
+		display: block;
+
+	}
+            
+</style>
+</head>
+<body>
+
+<div id=container>
+</div>
+<nav class="menu">
+<a class="menu" href="About.html">ABOUT</a>
+<a class="menu" href="Contact.html">CONTACT</a>
+<a class="menu" href="index.html">INDEX</a>
+</nav>
+
+	<script src="jquery-3.1.1.min.js"> </script>
+	<script>
+	var drop= $('.menu');
+	var select= $('#container');
+	function hide(){
+		drop.hide();
+	}
+	function show(){
+		drop.show();
+	}
+	hide();
+	//select.on('click',hide);
+	select.on('click', show);
+	</script>         
+            
+
+</body>
+</html>
