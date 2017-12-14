@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>BonNomTravels</title>
+<style>
+
+	#title{
+		font-family: 'Amatic SC';
+		text-align: center;
+		margin: auto;
+		color: #616160;
+		margin-top: 20px;
+		font-size: 200%;
+		
+
+	}
+
+	/*.module {
+		 cursor: url('http://cdn.onlinewebfonts.com/svg/img_513939.png'), auto;	
+		}*/
+
+	body{
+		overflow: hidden;
+	}
+	.parent {
+            position: relative;
+            margin: auto;
+            width: 1080px;
+            max-width: 100%;
+            max-height: 100%;
+            bottom: 0;
+            top:0;
+        }
+        
+        .map {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+			max-height: 100%;
+			margin: auto;
+			top:30px;
+			bottom:0;
+			left:0;
+			right:0;
+			border-top: 2px;
+        }
+
+        #NewYork {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 40%;
+            left: 26.5%;
+        }
+
+        #popup{
+		position: absolute;
+		left: 28%;
+		bottom: 60%;
+		
+		
+	}
+         #Barcelona {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 40%;
+            left: 47.5%;
+        }
+
+        #popup1{
+		position: absolute;
+		left:45%;
+		bottom: 65%;
+	}
+
+
+        #HongKong {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 52.5%;
+            left:79%;
+        }
+
+        #popup2{
+		position: absolute;
+		left:70%;
+		bottom: 50%;
+	}
+        #Kyoto {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 45%;
+            left: 85%;
+        }
+
+
+	#popup3{
+		position: absolute;
+		left:85%;
+		bottom: 55%;
+	}
+         #Osaka {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 48%;
+            left: 84%;
+        }
+
+       #popup4{
+		position: absolute;
+		left:80%;
+		bottom: 55%;		
+	}
+	
+         
+         	#hamburger
+	{
+	  margin: 5px;
+	  padding: 0;
+	  
+	  /* make it look decent enough */
+	  overflow: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+	}
+
+	#link
+	{
+	  color: #DDB238;
+	  text-decoration: none;
+	  transition: color 0.3s ease;
+	  font-family: "Amatic SC";
+	}
+
+	a:hover
+	{
+	  color: tomato;
+	}
+
+	#menuToggle
+	{
+	  display: block;
+	  position: absolute;
+	  top: 20px;
+	  right: 50px;
+	  
+	  z-index: 1;
+	  
+	  -webkit-user-select: none;
+	  user-select: none;
+	}
+
+	#menuToggle input
+	{
+	  display: block;
+	  width: 30px;
+	  height: 22px;
+	  position: absolute;
+	  top: -7px;
+	  left: -5px;
+	  
+	  cursor: pointer;
+	  
+	  opacity: 0; /* hide this */
+	  z-index: 2; /* and place it over the hamburger */
+	  
+	  -webkit-touch-callout: none;
+	}
+
+	/*
+	 * Just a quick hamburger
+	 */
+	#menuToggle span
+	{
+	  display: block;
+	  width: 25px;
+	  height: 4px;
+	  margin-bottom: 5px;
+	  position: relative;
+	  
+	  background: #DDB238;
+	  border-radius: 3px;
+	  
+	  z-index: 1;
+	  
+	  transform-origin: 4px 0px;
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              opacity 0.55s ease;
+	}
+
+	#menuToggle span:first-child
+	{
+	  transform-origin: 0% 0%;
+	}
+
+	#menuToggle span:nth-last-child(2)
+	{
+	  transform-origin: 0% 100%;
+	}
+
+	/* 
+	 * Transform all the slices of hamburger
+	 * into a crossmark.
+	 */
+	#menuToggle input:checked ~ span
+	{
+	  opacity: 1;
+	  transform: rotate(45deg) translate(4px, 4px);
+	  background: #DDB238;
+	}
+
+	/*
+	 * But let's hide the middle one.
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(3)
+	{
+	  opacity: 0;
+	  transform: rotate(0deg) scale(0.2, 0.2);
+	}
+
+	/*
+	 * Ohyeah and the last one should go the other direction
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(2)
+	{
+	  opacity: 1;
+	  transform: rotate(-45deg) translate(0, -1px);
+	}
+
+	/*
+	 * Make this absolute positioned
+	 * at the top left of the screen
+	 */
+	#menu
+	{
+	  position: absolute;
+	  width: 150px;
+	  margin: -80px 0 0 0;
+	  padding: 50px;
+	  padding-top: 50px;
+	  right: -100px;
+
+	  text-decoration: none;
+	  
+	  background: #ededed;
+	  list-style-type: none;
+	  -webkit-font-smoothing: antialiased;
+	  /* to stop flickering of text in safari */
+	  
+	  transform-origin: 0% 0%;
+	  transform: translate(100%, 0);
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+
+	#menu li
+	{
+	  padding: 10px 0;
+	  font-size: 22px;
+	}
+
+	/*
+	 * And let's fade it in from the left
+	 */
+	#menuToggle input:checked ~ ul
+	{
+	  transform: scale(1.0, 1.0);
+	  opacity: 1;
+	}
+
+	
+
+
+	#textstyle{
+		font-family: 'Amatic SC';
+		color: #616160;
+		font-size: 3vw;
+	}
+
+
+	/*#map{
+		position: absolute;
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		top:0;
+		bottom:0;
+		left:0;
+		right:0;
+		border-top: 2px;
+	}
+
+	#hongkong{
+		position: absolute;
+		max-width: 100%
+		max-height:100%;
+		margin: auto;
+		bottom:80%;
+		left: 80px;
+		right: 500px;
+
+		/*margin-top: 15%;
+		margin-left: 35%;
+		*/
+
+/* ----------- iPhone 6 ----------- */
+ 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { 
+		.container-fluid{
+			 max-width: 50%;
+			 overflow-x: hidden;
+			  overflow-y: scroll;
+			}
+
+
+		.parent{
+			position: relative;
+            margin: auto;
+            width: 768px;
+            max-width: 30%;
+            max-height: 30%;
+            bottom: 0;
+            top:0;
+		}
+
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { 
+.container-fluid{
+			 max-width: 50%;
+			 overflow-x: hidden;
+			 overflow-y: scroll;
+			}
+
+
+		.parent{
+  		  position: relative;
+            margin: auto;
+            width: 992px;
+            max-width: 30%;
+            max-height: 30%;
+            bottom: 0;
+            top:0;
+		}
+
+
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { 
+.container-fluid{
+			 max-width: 50%;
+			 overflow-x: hidden;
+ 			 overflow-y: scroll;
+
+			}
+
+
+		.parent{
+		    position: relative;
+            margin: auto;
+            width: 1200px;
+            max-width: 30%;
+            max-height: 30%;
+            bottom: 0;
+            top:0;
+		}
+
+
+}
+	
+
+</style>
+</head>
+<body>
+
+<p id=title>
+<b>BONNOMTRAVELS</b>
+</p>
+
+<!--<img id=timeline src='Assets/Timeline.png'>-->
+
+<div id="hamburger">
+<nav role='navigation'>
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a id="link" href="index.html"><li><b>Home</b></li></a>
+      <a id="link" href="About.html"><li><b>About</b></li></a>
+      <a id="link" href="Contact.html"><li><b>Contact</b></li></a>
+    </ul>
+  </div>
+</nav>
+</div>
+
+
+
+<div class="parent">
+     <img class="map" src="Assets/Geometric_Map.png" />
+     <a href="New York.html"> <img id="NewYork" src="Assets/dot.png" /> </a>
+     <div id="popup" style="display: none"><div id=textstyle> New York City </div></div>
+     <a href="Barcelona.html"> <img id="Barcelona" src="Assets/dot.png" /> </a>
+     <div id="popup1" style="display: none"><div id=textstyle> Barcelona </div></div>
+     <a href="Hong Kong.html"><img id="HongKong" src="Assets/dot.png" /> </a>
+     <div id="popup2" style="display: none"><div id=textstyle> Hong Kong </div></div>
+     <a href="Kyoto.html"><img id="Kyoto" src="Assets/dot.png" /></a>
+     <div id="popup3" style="display: none"><div id=textstyle> Kyoto </div></div>
+     <a href="Osaka.html"><img id="Osaka" src="Assets/dot.png" /></a>
+     <div id="popup4" style="display: none"><div id=textstyle> Osaka </div></div>
+
+    </div>
+
+
+ <script>
+
+ var NewYork = document.getElementById('NewYork');
+NewYork.onmouseover = function() {
+  document.getElementById('popup').style.display = 'block';
+}
+NewYork.onmouseout = function() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+var Barcelona = document.getElementById('Barcelona');
+Barcelona.onmouseover = function() {
+  document.getElementById('popup1').style.display = 'block';
+}
+Barcelona.onmouseout = function() {
+  document.getElementById('popup1').style.display = 'none';
+}
+
+var HongKong = document.getElementById('HongKong');
+HongKong.onmouseover = function() {
+  document.getElementById('popup2').style.display = 'block';
+}
+HongKong.onmouseout = function() {
+  document.getElementById('popup2').style.display = 'none';
+}
+
+var Kyoto = document.getElementById('Kyoto');
+Kyoto.onmouseover = function() {
+  document.getElementById('popup3').style.display = 'block';
+}
+Kyoto.onmouseout = function() {
+  document.getElementById('popup3').style.display = 'none';
+}
+
+var Osaka = document.getElementById('Osaka');
+Osaka.onmouseover = function() {
+  document.getElementById('popup4').style.display = 'block';
+}
+Osaka.onmouseout = function() {
+  document.getElementById('popup4').style.display = 'none';
+}
+
+    </script>
+
+
+
+
+</body>
+</html>
